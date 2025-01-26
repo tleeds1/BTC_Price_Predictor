@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTC Close Price Prediction</title>
+    <style>
+        /* General reset */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #4caf50;
+            text-align: center;
+        }
+
+        form {
+            background: #ffffff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        form button {
+            background: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        form button:hover {
+            background: #45a049;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        @media (max-width: 600px) {
+            form {
+                padding: 15px;
+            }
+
+            form input, form button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>BTC Close Price Prediction</h1>
+        <form method="POST">
+            <label for="high">High:</label>
+            <input type="number" step="0.01" name="high" required>
+
+            <label for="low">Low:</label>
+            <input type="number" step="0.01" name="low" required>
+
+            <label for="open">Open:</label>
+            <input type="number" step="0.01" name="open" required>
+
+            <label for="volume">Volume:</label>
+            <input type="number" step="0.01" name="volume" required>
+
+            <button type="submit">Predict Close Price</button>
+        </form>
+
+        {% if prediction %}
+        <h2>Predicted Close Price: {{ prediction }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
